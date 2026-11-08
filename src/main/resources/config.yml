@@ -1,0 +1,59 @@
+# SeedVeil - world seed protection
+# Apply changes with: /seedveil reload
+# (The bedrock-datapack section is only applied on a server restart.)
+
+# Language used for the console and for players whose client language has no messages_<code>.properties file.
+default-language: en
+
+# Layer 1: replaces the hashed seed in the login and respawn packets with a random value.
+# Seed crackers use this value to verify candidate seeds; a fake value makes that check useless.
+# Takes effect immediately for every player.
+hashed-seed:
+  enabled: true
+
+# Layer 2: a data pack that makes the bedrock floor/roof pattern independent of the seed.
+# It is generated from the server's own vanilla world generation files on every startup and enabled automatically.
+# Only affects newly generated chunks. Do not delete plugins/SeedVeil/bedrock-token.txt once chunks were generated
+# with it: a new token changes the bedrock pattern of chunks generated afterwards.
+bedrock-datapack:
+  enabled: true
+  # Also randomises the deepslate transition pattern (looks the same, only the pattern differs).
+  randomize-deepslate: false
+
+# Layer 4: commands that reveal the seed. Players with seedveil.bypass are not blocked.
+# Multi-word entries such as "mv info" also cover their subcommands. Namespaced forms (/minecraft:seed) are matched automatically.
+commands:
+  enabled: true
+  blocked:
+    - seed
+    - mv info
+    - mvinfo
+    - mvi
+    # - locate
+  # Alerts staff (seedveil.notify) when a player tries many blocked commands in a short time.
+  probe-alert:
+    threshold: 5
+    window-seconds: 30
+
+# Layer 5: alerts staff when a player visits many of the structure types seed crackers rely on in a short time.
+# It never punishes anyone.
+structure-monitor:
+  enabled: true
+  threshold: 5
+  window-minutes: 30
+  structures:
+    - minecraft:igloo
+    - minecraft:desert_pyramid
+    - minecraft:jungle_pyramid
+    - minecraft:swamp_hut
+    - minecraft:shipwreck
+    - minecraft:shipwreck_beached
+    - minecraft:pillager_outpost
+    - minecraft:monument
+
+# Layer 3: /seedveil scramble randomises the seed-* keys in spigot.yml (structure placement) and turns on
+# Paper's feature-seeds.generate-random-seeds-for-all (ores, dungeons, trees). Needs a restart; new chunks only.
+# It asks for "/seedveil scramble confirm" when the worlds already have more region files (.mca) than this.
+# A freshly created server (spawn chunks + nether + end) has about 12 region files.
+scramble:
+  max-region-files-without-confirm: 16

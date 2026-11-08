@@ -1,0 +1,7 @@
+.gradle/
+build/
+.idea/
+*.iml
+out/
+run/
+bedrock-token.txt

@@ -1,0 +1,19 @@
+name: SeedVeil
+version: '${version}'
+main: net.craftavia.seedveil.SeedVeilPlugin
+bootstrapper: net.craftavia.seedveil.SeedVeilBootstrap
+api-version: '26.2'
+description: Makes the world seed hard to crack (hashed seed, bedrock pattern, structure seeds, command block, structure monitor).
+authors: [Craftavia]
+website: https://craftavia.net
+folia-supported: false
+permissions:
+  seedveil.admin:
+    description: Use /seedveil (status, scramble, reload).
+    default: op
+  seedveil.bypass:
+    description: Use blocked seed commands and skip the structure monitor.
+    default: false
+  seedveil.notify:
+    description: Receive alerts about possible seed cracking behaviour.
+    default: op
