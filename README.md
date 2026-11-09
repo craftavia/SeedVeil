@@ -6,6 +6,8 @@ SeedVeil is a single jar with no dependencies (no ProtocolLib or PacketEvents). 
 a fake hashed seed in the login packets, a per-server bedrock pattern, random structure and feature seeds,
 a block on seed-revealing commands and a structure-visit monitor that alerts staff.
 
+**Download:** [Hangar](https://hangar.papermc.io/mrpunky/SeedVeil) · [GitHub Releases](https://github.com/craftavia/SeedVeil/releases)
+
 ## Features
 
 | Layer | What it does | When it takes effect |
@@ -130,6 +132,8 @@ The build uses [paperweight-userdev](https://github.com/PaperMC/paperweight); th
 written to `build/libs/`.
 
 ## Türkçe
+
+**İndir:** [Hangar](https://hangar.papermc.io/mrpunky/SeedVeil) · [GitHub Releases](https://github.com/craftavia/SeedVeil/releases)
 
 SeedVeil, dünya seed'inin SeedCrackerX gibi araçlarla kırılmasını ciddi ölçüde zorlaştıran bir Paper eklentisidir.
 Tek jar, ek bağımlılık yok. Beş katmanı vardır:
